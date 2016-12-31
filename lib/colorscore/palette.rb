@@ -20,6 +20,7 @@ module Colorscore
 
         histogram_scores.each_with_index do |item, index|
           color_score, color = *item
+          next unless color
 
           color = color.to_hsl.tap { |c| c.s = 0.05 + c.s * (4 - c.l * 2.5) }.to_rgb
 
